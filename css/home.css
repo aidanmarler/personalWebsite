@@ -1,0 +1,14 @@
+#mainTitle {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    left: 0;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.title {
+    font-family: monospace;
+}
