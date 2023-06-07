@@ -1,5 +1,5 @@
 .pageTitle.skills {
-  background-color: hsl(249, 8%, 53%);
+  background-color: hsl(249, 12%, 53%);
 }
 
 #skillsDiv {
@@ -147,7 +147,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: -1rem;
-  background-color: hsl(55, 19%, 89%);
+  background-color: hsl(38, 14%, 88%);
   overflow: auto;
   scroll-behavior: smooth;
   scroll-margin: 0.5rem;
@@ -177,7 +177,7 @@
   padding-left: 0.4rem;
   padding-right: 0.4rem;
   padding-top: -1rem;
-  background-color: rgb(222, 220, 210);
+  background-color: hsl(38, 14%, 83%);
   overflow: auto;
   scroll-behavior: smooth;
   scroll-margin: 0.5rem;

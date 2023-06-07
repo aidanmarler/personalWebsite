@@ -53,12 +53,12 @@ function createProjects() {
     const info = document.createElement("div");
     const header = document.createElement("div");
     const imageFrame = document.createElement("div");
-    const linkPrompt = document.createElement("button");
+    const linkDiv = document.createElement("div");
 
     // Append the child divs to the container div
     container.appendChild(info);
     container.appendChild(imageFrame);
-    imageFrame.appendChild(linkPrompt);
+    container.appendChild(linkDiv);
     container.appendChild(header);
 
     // Add classes to divs
@@ -67,15 +67,11 @@ function createProjects() {
     info.classList.add("closed");
     header.classList.add("projectHeader");
     imageFrame.classList.add("projectImageFrame");
-    linkPrompt.classList.add("projectLinkPrompt");
+    linkDiv.classList.add("projectLink");
 
     // Set up Header Div
     header.innerHTML = `
-    <p>${project.title}</p>
-    <button class="projectToggle">
-        <img src="svg/screw.svg" class = "projectScrew closed" alt="Toggle Slideout" title="More Information">
-    </button>
-        `;
+    <p>${project.title}</p>`;
 
     imageFrame.innerHTML = `
     <div class="projectImageDiv">
@@ -83,45 +79,26 @@ function createProjects() {
     </div>
         `;
 
-    /*
-    $(projectToggle).click(function () {
-      $(projectScrew).classList.toggle("open");
-      imageFrame.classList.toggle("open");
-    });
+    linkDiv.innerHTML = `
+    <button class="projectLinkButton" 
+      onclick=" window.open('${project.link}',target='_blank')">
+        View Project<img src="svg/arrowR.svg">
+    </button>`;
 
-    // Set up Shadow Contents Div
-    for (let i = 0; i < skill.shadowContents.length; i++) {
-      shadowContents.innerHTML += `
-                      <p>${skill.shadowContents[i]}</p>
-                  `;
-    }
-
-    // Set up Contents Div
-    for (let i = 0; i < skill.contentLines.length; i++) {
-      content.innerHTML += `
-                <p>${skill.contentLines[i]}</p>
-            `;
-    }
-
-    // Set up Projects Div
-    projects.innerHTML += `<h5>Projects</h5>`;
-    for (let i = 0; i < skill.projects.length; i++) {
-      if (skill.projects[i].url != null) {
-        console.log("URL");
-        projects.innerHTML += `
-        <button class="skill-project" title="Go To ${skill.projects[i].title}"><a href="${skill.projects[i].url}">${skill.projects[i].title}</a></button>
-    `;
-      } else {
-        projects.innerHTML += `
-                      <div class="skill-project">${skill.projects[i].title}</div>
-                  `;
-      }
-    }
-*/
-    // Add Skill Div
+    // Add Project Div
     projects.append(container);
   });
 }
+
+// Add this to your JavaScript file
+const projectImageDiv = document.querySelector('.projectImageDiv');
+const projectImage = document.querySelector('.project-image');
+
+$('.projectImageDiv').on('mousemove', e => {
+  const x = e.clientX - projectImageDiv.offsetLeft; // Get the x position relative to the parent element
+  const y = e.clientY - projectImageDiv.offsetTop; // Get the y position relative to the parent element
+  projectImage.style.transform = `translate(${x}px, ${y}px)`; // Update the position of the image
+});
 
 // Call the createProjects() function to create the divs
 createProjects();
