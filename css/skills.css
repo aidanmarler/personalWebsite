@@ -18,6 +18,8 @@
   margin-bottom: 2rem;
 }
 
+/* -- Label -- */
+
 .skillLabel {
   position: absolute;
   text-align: center;
@@ -26,12 +28,12 @@
   justify-content: center;
   height: 10rem;
   width: 10rem;
-  background-color: hsl(30, 11%, 82%);
   border-radius: 0.15rem;
   border: solid rgb(107, 107, 107) 0.1rem;
   user-select: none;
   font-family: monospace;
   transition: all 0.2s ease-in-out;
+  background-color: hsl(38, 14%, 93%);
 }
 
 .skillLabel.closed:hover {
@@ -52,7 +54,7 @@
 .skillLabel.open {
   top: -0.15rem;
   box-shadow: 0 0.3rem 0 rgba(32, 31, 42, 0.857);
-  background-color: hsl(27, 21%, 90%);
+  background-color: hsl(38, 14%, 100%);
 }
 
 .skillIcon {
@@ -106,12 +108,16 @@
     color: rgb(0, 0, 0);
 }
 
+
+/* -- Slideout -- */
+
 .skillSlideout {
   position: absolute;
   transition: all 0.2s ease-in-out;
   left: 9.7rem;
   height: 9rem;
   background-color: rgb(169, 169, 169);
+  background-color: hsl(249, 5%, 63%);
   border-radius: 0.3rem;
   border: solid rgb(107, 107, 107) 0.1rem;
   transition: all 0.2s ease-in-out;
@@ -240,6 +246,8 @@ a:active {
   color: rgb(237, 237, 237);
 }
 
+/* -- Shadow -- */
+
 .skillShadowContents {
   text-align: center;
   align-items: center;
@@ -253,12 +261,14 @@ a:active {
   right: 1rem;
   top: 0.5rem;
   height: 9rem;
-  background-color: rgb(222, 220, 210);
+  background-color: hsl(50, 15%, 85%);
   border-radius: 0.3rem;
-  border: solid rgb(222, 220, 210) 0.1rem;
+  border: solid hsl(50, 15%, 85%) 0.1rem;
   transition: all 0.2s ease-in-out;
   color: rgb(87, 86, 102);
   font-size: 1.3rem;
+  background-color: hsl(53, 7%, 74%);
+  border: solid hsl(53, 7%, 74%) 0.1rem;
 }
 
 .screwIcon {
