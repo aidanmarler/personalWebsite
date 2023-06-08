@@ -54,12 +54,12 @@ const skillsData = [
       {
         id: "camelAnalysis",
         title: "Camel Skeletal Analysis",
-        url: "projects.html",
+        url: "projects.html#skeletalAnalysis",
       },
       {
         id: "dengueVisual",
         title: "Web Visualization of Dengue Fever",
-        url: "projects.html",
+        url: "projects.html#dengueVisual",
       },
       {
         id: "dubaiUrbanGrowth",

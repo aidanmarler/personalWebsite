@@ -8,6 +8,7 @@
   top: 17rem;
   left: 50%;
   width: 63%;
+  min-width: calc(1100px * 0.63);
   height: fit-content;
 }
 

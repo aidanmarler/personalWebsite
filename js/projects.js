@@ -21,10 +21,45 @@ const projectsData = [
       "Tableau",
     ],
     info: [
-      "I learned Data Analysis in college through roughly a dozen different courses.",
-      "I use Python, R, and Tableau to analyze data and create visualizations.",
+      "This is a web-app to help researchers understand the spatial and temporal patterns of Dengue Fever.",
     ],
     link: "https://aidanmarler.github.io/DengueFever/",
+  },
+  {
+    id: "dubaiUrbanization",
+    title: "Urban Sprawl of Dubai, UAE",
+    img: "img/dubai.png",
+    skills: [
+      "Machine Learning",
+      "Remote Sensing",
+      "Spatial Statistics",
+      "GIS",
+      "Geo Visualization",
+    ],
+    info: [
+      "Pixel Classification and dNDBI to measure urban sprawl over time.",
+    ],
+    link: "https://sites.google.com/view/urban-sprawl-of-dubai/",
+  },
+  {
+    id: "pointPatterns",
+    title: "Global Point Analysis Project",
+    img: "img/dubai.png",
+    skills: [
+      "Principal Component Analysis",
+      "K-Means Clustering",
+      "Spatial Statistics",
+      "Point Pattern Analysis",
+      "Data Visualization",
+      "R",
+      "Python",
+    ],
+    info: [
+      "R script that takes an input of any point data and performs a variety of spatial statistical analyses.",
+      "While designed for spring data in the US, it could be used with landslides in Algeria or tree locations in China.",
+      "It is truly a universal tool!",
+    ],
+    link: "https://sites.google.com/view/urban-sprawl-of-dubai/",
   },
   {
     id: "skeletalAnalysis",
@@ -35,11 +70,10 @@ const projectsData = [
       "Data Visualization",
       "Excel",
       "R",
-      "Research Methodology",
+      "Research Method",
     ],
     info: [
-      "I learned Data Analysis in college through roughly a dozen different courses.",
-      "I use Python, R, and Tableau to analyze data and create visualizations.",
+      "Skeletal pathology analysis of a Bactrian Camel from Czechia.",
     ],
     link: "https://aidanmarler.github.io/DengueFever/",
   },
@@ -50,94 +84,38 @@ function createProjects() {
   projectsData.forEach((project) => {
     // Create Divs
     const container = document.createElement("div");
-    const info = document.createElement("div");
     const header = document.createElement("div");
     const imageFrame = document.createElement("div");
-    const linkDiv = document.createElement("div");
 
     // Append the child divs to the container div
-    container.appendChild(info);
     container.appendChild(imageFrame);
-    container.appendChild(linkDiv);
     container.appendChild(header);
 
     // Add classes to divs
     container.classList.add("projectContainer");
-    info.classList.add("projectInfo");
-    info.classList.add("closed");
     header.classList.add("projectHeader");
     imageFrame.classList.add("projectImageFrame");
-    linkDiv.classList.add("projectLink");
 
     // Set up Header Div
     header.innerHTML = `
-    <p>${project.title}</p>`;
+    <p id=${project.id}>${project.title}</p>`;
 
     imageFrame.innerHTML = `
-    <div class="projectImageDiv">
-        <img src="${project.img}" class = "project-image" alt="${project.title}">
-    </div>
-        `;
-
-    linkDiv.innerHTML = `
-    <button class="projectLinkButton" 
-      onclick=" window.open('${project.link}',target='_blank')">
-        View Project<img class="linkArrow" src="svg/arrowR.svg">
-    </button>`;
-
-    /*
-    $('.projectImageDiv').on('mouseenter', e => {
-      const $imageDiv = $(e.currentTarget);
-      const $image = $imageDiv.find('img');
-      const imageWidth = $image.width();
-      const imageHeight = $image.height();
-      const containerWidth = $imageDiv.width();
-      const containerHeight = $imageDiv.height();
-
-      $imageDiv.on('mousemove', e => {
-        const ratioX = e.clientX / containerWidth;
-        const ratioY = e.clientY / containerHeight;
-        const shiftX = (imageWidth - containerWidth) * (0.5 - ratioX);
-        const shiftY = (imageHeight - containerHeight) * (0.5 - ratioY);
-
-        $image.css('transform', `translate(${shiftX}px, ${shiftY}px)`);
-      });
-    });
-
-    $('.projectImageDiv').on('mouseleave', e => {
-      const $imageDiv = $(e.currentTarget);
-      $imageDiv.off('mousemove'); // Stop updating the transformation when leaving the image
-    });
-
-    $('.projectImageDiv').on('mouseleave', e => {
-      $(e.currentTarget).find('img').css('transform', `translate(0px, 0px)`);
-    });
-
-    let $imageDiv = $(".projectImageDiv");
-    let $image = $imageDiv.find('img');
-    let imageWidth = $image.width();
-    let imageHeight = $image.height();
-    let containerWidth = $imageDiv.width();
-    let containerHeight = $imageDiv.height();
-    $imageDiv.on("mousemove", onZoom);
-    $imageDiv.on("mouseover", onZoom);
-    $imageDiv.on("mouseleave", offZoom);
-    function onZoom(e) {
-      const ratioX = e.clientX / containerWidth;
-      const ratioY = e.clientY / containerHeight;
-      const shiftX = (imageWidth - containerWidth) * (0.5 - ratioX);
-      const shiftY = (imageHeight - containerHeight) * (0.5 - ratioY);
-      //$image.style.transformOrigin = `${x}px ${y}px`;
-      $image.css('transform', `scale(1.5)`);
-      $image.css('transform', `translate(${shiftX}px, ${shiftY}px)`);
-    }
-    function offZoom(e) {
-      $image.css('transform', `translate(0px, 0px)`);
-      $image.css('transform', `scale(1)`);
-    }*/
-
-
-
+      <div class="projectImageDiv">
+        <img src="${project.img}" class="project-image" alt="${project.title}">
+      </div>
+      <div class="projectInfo">
+        <p class="titleLine">Info</p>
+        ${project.info.map(line => `<p class="infoLine">${line}</p>`).join('')}
+        <p class="titleSkills">Skills Used</p>
+        ${project.skills.map(skill => `<li class="skillLine">${skill}</li>`).join('')}
+      </div>
+      <div class="projectLink">
+        <button class="projectLinkButton" onclick="window.open('${project.link}',target='_blank')">
+          Explore<img class="linkArrow" src="svg/arrowR.svg">
+        </button>
+      </div>
+    `;
 
     // Add Project Div
     projects.append(container);
@@ -160,7 +138,10 @@ $('.projectImageDiv').on('mousemove', e => {
 // Call the createProjects() function to create the divs
 createProjects();
 
-function addInteractiveFunctionality() {
+
+
+// This function adds the interactive functionality to the project images
+function addInteractiveFunctionality() { // honestly, it is pretty rube goldberg
   const projectImageDivs = document.querySelectorAll('.projectImageDiv');
   projectImageDivs.forEach(projectImageDiv => {
     const projectImage = projectImageDiv.querySelector('.project-image');
@@ -178,11 +159,11 @@ function addInteractiveFunctionality() {
         const offsetY = e.clientY - rect.top;
         const ratioX = offsetX / containerWidth;
         const ratioY = offsetY / containerHeight;
-        const shiftX = ((ratioX * 100)-50) * xRatio * .4;
-        const shiftY = ((ratioY * 100)-50) * yRatio * -0.2;
+        const shiftX = ((ratioX * 100) - 50) * xRatio * .3;
+        const shiftY = ((ratioY * 100) - 50) * yRatio * -0.2;
         projectImage.style.left = `${shiftX}%`;
         projectImage.style.top = `${shiftY}%`;
-        projectImage.style.transform = `scale(.22)`;
+        projectImage.style.transform = `scale(.23)`;
       });
       projectImageDiv.addEventListener('mouseleave', e => {
         projectImage.style.transition = `all 0.5s ease-in-out`;
