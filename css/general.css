@@ -29,6 +29,7 @@ body {
   font-size: 2rem;
   font-weight: 100;
   letter-spacing: 0.2rem;
+  min-width: calc(1100px * 0.65);
 }
 
 /* width */
